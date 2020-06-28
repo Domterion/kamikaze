@@ -1,0 +1,35 @@
+name: Kamikaze
+main: com.dominiquecat.kamikaze.Kamikaze
+version: 1.0.0
+description: A random plugins
+website: http://dominiquecat.com/
+author: Domterion
+
+commands:
+  meow:
+    description: Meow
+    permission: kamikaze.meow.use
+    usage: /<command>
+  message:
+    description: Message a player
+    permission: kamikaze.message.send
+    aliases: msg
+    usage: /<command> [player] [message]
+
+permissions:
+  kamikaze.*:
+    description: Allows use of all kamikaze commands
+    default: op
+    children:
+      kamikaze.meow.use: true
+      kamikaze.message.receive: true
+      kamikaze.message.send: true
+  kamikaze.meow.use:
+    description: Allows users to use meow
+    default: true
+  kamikaze.message.receive:
+    description: Allows users to receive messages
+    default: true
+  kamikaze.message.send:
+    description: Allows users to receive messages
+    default: true

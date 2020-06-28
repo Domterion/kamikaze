@@ -1,0 +1,28 @@
+# Kamikaze config
+
+# Every message from this plugin will start with this prefix.
+prefix: '&f&l[&r&4Kamikaze&r&f&l] '
+
+# =========================
+#          Messages
+# =========================
+# All messages are defined here, the prefix is automagically added to messages.
+message:
+  # The message format
+  # `{sender}` the person thats sending the message
+  # `{receive}` the person receiving the message
+  # `{message}` the message itself
+  # `{sep}` the symbols that separate the messages
+  format: '[{sender}] {sep} [{receive}]: {message}'
+  # Sent when a user supplies too many args.
+  # `{count}` amount of allowed args for the command
+  invalid-amount-of-args: 'This command can only have {count} args.'
+  # Sent when someone tries to message someone they cant
+  not-open: 'You cant message this user.'
+  # When somebody tries to message themselves
+  cant-message-self: 'You cant message yourself'
+
+# When a command is called but the user doesn't have permissions
+missing-perms: 'You dont have permissions to use this command.'
+# When an invalid user is used in a command
+invalid-user: 'That user was not found.'
