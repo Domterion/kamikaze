@@ -17,7 +17,14 @@ class UserMessageUtils {
 
         fun getUserMessage(player: Player): Player? {
             val lastMessage = messages[player.uniqueId]
-            val receive = Bukkit.getPlayer(lastMessage!!)
+
+            if (lastMessage == null) {
+                messages.remove(player.uniqueId)
+                return null
+            }
+
+            val receive = Bukkit.getPlayer(lastMessage)
+
             if (receive == null) {
                 messages.remove(player.uniqueId)
                 return null

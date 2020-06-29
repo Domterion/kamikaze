@@ -9,62 +9,50 @@ import java.io.File
 
 
 class Handler {
-    companion object {
-        var plugin: Kamikaze? = Bukkit.getPluginManager().getPlugin("Kamikaze") as Kamikaze?
-        var configFile: File = File(plugin?.getDataFolder().toString() + "/config.yml")
-        var config: FileConfiguration = YamlConfiguration.loadConfiguration(configFile)
+    private var plugin: Kamikaze? = Bukkit.getPluginManager().getPlugin("Kamikaze") as Kamikaze?
+    var configFile: File = File(plugin?.getDataFolder().toString() + "/config.yml")
+    var config: FileConfiguration = YamlConfiguration.loadConfiguration(configFile)
 
-        fun getPrefix(): String {
-            var prefix = config.getString("prefix")
+    fun getKey(key: String): String {
+        var str = config.getString(key)
 
-            if(prefix.isNullOrEmpty()) prefix = "&f&l[&r&4Kamikaze&r&f&l] "
+        if(str == null) str = "No value in config for key: $key"
 
-            return prefix.replace("&", "§")
-        }
+        return str
+    }
 
-        fun missingPerms(): String {
-            var msg = config.getString("missing-perms")
+    fun getPrefix(): String {
+        val key = getKey("prefix")
+        return key.replace("&", "§")
+    }
 
-            if(msg.isNullOrEmpty()) msg = "You dont have permissions to use this command."
+    fun missingPerms(): String {
+        val key = getKey("missing-perms")
+        return key.replace("&", "§")
+    }
+    fun invalidUser(): String {
+        val key = getKey("invalid-user")
+        return key.replace("&", "§")
+    }
 
-            return msg.replace("&", "§")
-        }
-        fun invalidUser(): String {
-            var msg = config.getString("invalid-user")
-
-            if(msg.isNullOrEmpty()) msg = "That user was not found."
-
-            return msg.replace("&", "§")
-        }
-
-        fun msgInvalidAmountOfArgs(count: Int): String {
-            var msg = config.getString("message.invalid-amount-of-args")
-
-            if(msg.isNullOrEmpty()) msg = "This command can only have {count} args."
-
-            return msg.replace("&", "§").replace("{count}", count.toString())
-        }
-        fun msgGetFormat(sender: Player, receive: Player, message: String, sep: String): String {
-            var msg = config.getString("message.format")
-
-            if(msg.isNullOrEmpty()) msg = "[{sender}] {sep} [{receive}]: {message}"
-
-            return msg.replace("&", "§").replace("{sender}", sender.displayName).replace("{receive}", receive.displayName).replace("{message}", message).replace("{sep}", sep)
-        }
-        fun msgNotOpen(): String {
-            var msg = config.getString("message.not-open")
-
-            if(msg.isNullOrEmpty()) msg = "You cant message this user."
-
-            return msg.replace("&", "§")
-        }
-        fun msgMessageSelf(): String {
-            var msg = config.getString("message.cant-message-self")
-
-            if(msg.isNullOrEmpty()) msg = "You cant message yourself"
-
-            return msg.replace("&", "§")
-        }
-
+    fun msgInvalidAmountOfArgs(count: Int): String {
+        val key = getKey("message.invalid-amount-of-args")
+        return key.replace("&", "§").replace("{count}", count.toString())
+    }
+    fun msgGetFormat(sender: Player, receive: Player, message: String, sep: String): String {
+        val key = getKey("message.format")
+        return key.replace("&", "§").replace("{sender}", sender.displayName).replace("{receive}", receive.displayName).replace("{message}", message).replace("{sep}", sep)
+    }
+    fun msgNotOpen(): String {
+        val key = getKey("message.not-open")
+        return key.replace("&", "§")
+    }
+    fun msgMessageSelf(): String {
+        val key = getKey("message.cant-message-self")
+        return key.replace("&", "§")
+    }
+    fun msgNoRecent(): String {
+        val key = getKey("message.no-recent")
+        return key.replace("&", "§")
     }
 }

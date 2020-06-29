@@ -15,6 +15,11 @@ commands:
     permission: kamikaze.message.send
     aliases: msg
     usage: /<command> [player] [message]
+  recent:
+    description: Message your last messaged user
+    permission: kamikaze.message.send
+    aliases: r
+    usage: /<command> [message]
 
 permissions:
   kamikaze.*:

@@ -20,7 +20,7 @@ class Kamikaze : JavaPlugin() {
         }
         if (!config.exists()) {
             val inputStream = getResource("config.yml")
-            copy(inputStream, config.path)
+            copy(inputStream!!, config.path)
         }
 
         getCommand("meow")?.setExecutor(MeowCmd())
@@ -29,7 +29,7 @@ class Kamikaze : JavaPlugin() {
         println("Kamikaze enabled!")
     }
 
-    fun copy(source: InputStream?, destination: String?): Boolean {
+    fun copy(source: InputStream, destination: String): Boolean {
         var success = true
         try {
             Files.copy(source, Paths.get(destination), StandardCopyOption.REPLACE_EXISTING)

@@ -1,4 +1,14 @@
 # Kamikaze config
+# If you want no value for a message clear everything between ''
+
+# =========================
+#          Config Errors
+# =========================
+# No value in config for key:
+#   If you get a message saying 'No value in config for key:' make sure that key is present below.
+#   if this doesn't work an up to date config will always be on https://github.com/Domterion/kamikaze/blob/master/src/main/resources/config.yml
+#   Alternatively you can delete the config and it will be made next server start.
+
 
 # Every message from this plugin will start with this prefix.
 prefix: '&f&l[&r&4Kamikaze&r&f&l] '
@@ -21,6 +31,8 @@ message:
   not-open: 'You cant message this user.'
   # When somebody tries to message themselves
   cant-message-self: 'You cant message yourself'
+  # When someone uses recent without any recents
+  no-recent: 'You need a recent to use this.'
 
 # When a command is called but the user doesn't have permissions
 missing-perms: 'You dont have permissions to use this command.'

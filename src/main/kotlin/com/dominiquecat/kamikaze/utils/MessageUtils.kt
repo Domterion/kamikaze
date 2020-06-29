@@ -6,7 +6,7 @@ import org.bukkit.entity.Player
 class MessageUtils {
     companion object {
         fun sendMessage(player: Player, message: String) {
-            player.sendMessage("${Handler.getPrefix()}$message")
+            player.sendMessage("${Handler().getPrefix()}$message")
         }
     }
 }
