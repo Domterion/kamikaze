@@ -67,4 +67,21 @@ class Handler {
 
         return key.replace("&", "§").replace("{server}", player.server.ip).replace("{player}", player.name)
     }
+
+    // These need players to get server information
+    fun welcomerBroadcast(player: Player): String {
+        val key = config.getString("welcomer.broadcast") ?: return ""
+
+        return key.replace("&", "§").replace("{player}", player.name).replace("{count}", player.server.onlinePlayers.size.toString())
+    }
+    fun welcomerPlayer(player: Player): String {
+        val key = config.getString("welcomer.player") ?: return ""
+
+        return key.replace("&", "§").replace("{player}", player.name).replace("{count}", player.server.onlinePlayers.size.toString())
+    }
+    fun welcomerEnabled(): Boolean {
+        val key = config.getBoolean("welcomer.enabled")
+
+        return key
+    }
 }

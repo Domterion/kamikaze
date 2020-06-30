@@ -53,3 +53,22 @@ tab:
   # `{server}` the server ip
   # `{player}` the player name
   bottom: '&f&l Thanks for joining!'
+
+# =========================
+#          Misc
+# =========================
+# Config items without a category
+
+# Welcomer settings here
+# These are sent without the prefix
+welcomer:
+  # A message broadcasted to all users when someone joins
+  # `{player}` the player that joined
+  # `{count}` the servers member count
+  broadcast: ''
+  # A message sent to the player that joined
+  # `{player}` the player that joined
+  # `{count}` the servers member count
+  player: 'Welcome, stay respectful and have fun! We now have {count} members.'
+  # Enables or disables the default join message. Make sure this is false if the above are being used
+  enabled: false
