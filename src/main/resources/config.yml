@@ -46,10 +46,10 @@ invalid-user: 'That user was not found.'
 # You can safely delete these from config, but doing so has the same effect as leaving it as ''
 tab:
   # The message that shows above tab list
-  # `{server}` the server name
+  # `{server}` the server ip
   # `{player}` the player name
   top: '&4{server}'
   # The message that shows below tab list
-  # `{server}` the server name
+  # `{server}` the server ip
   # `{player}` the player name
   bottom: '&f&l Thanks for joining!'

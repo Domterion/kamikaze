@@ -60,11 +60,11 @@ class Handler {
     fun tabTop(player: Player): String {
         val key = config.getString("tab.top") ?: return ""
 
-        return key.replace("&", "§").replace("{server}", player.server.name).replace("{player}", player.name)
+        return key.replace("&", "§").replace("{server}", player.server.ip).replace("{player}", player.name)
     }
     fun tabBottom(player: Player): String {
         val key = config.getString("tab.bottom") ?: return ""
 
-        return key.replace("&", "§").replace("{server}", player.server.name).replace("{player}", player.name)
+        return key.replace("&", "§").replace("{server}", player.server.ip).replace("{player}", player.name)
     }
 }
