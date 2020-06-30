@@ -1,6 +1,9 @@
 # Kamikaze
 A weird Minecraft plugin meant to be fully customizable and semi useful
 
+## Versions
+Made for 1.16.1 
+
 ## Permissions
 Below are all of kamikazes permissions
 

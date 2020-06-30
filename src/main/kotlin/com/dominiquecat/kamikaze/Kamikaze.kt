@@ -2,6 +2,8 @@ package com.dominiquecat.kamikaze
 
 import com.dominiquecat.kamikaze.commands.MeowCmd
 import com.dominiquecat.kamikaze.commands.MessageCmd
+import com.dominiquecat.kamikaze.events.PlayerJoinEvent
+import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 import java.io.IOException
@@ -25,6 +27,8 @@ class Kamikaze : JavaPlugin() {
 
         getCommand("meow")?.setExecutor(MeowCmd())
         getCommand("message")?.setExecutor(MessageCmd())
+
+        Bukkit.getPluginManager().registerEvents(PlayerJoinEvent(), this)
 
         println("Kamikaze enabled!")
     }

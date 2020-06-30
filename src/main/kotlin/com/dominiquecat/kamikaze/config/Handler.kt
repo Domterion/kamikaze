@@ -55,4 +55,16 @@ class Handler {
         val key = getKey("message.no-recent")
         return key.replace("&", "§")
     }
+
+    // These need players to get server information
+    fun tabTop(player: Player): String {
+        val key = config.getString("tab.top") ?: return ""
+
+        return key.replace("&", "§").replace("{server}", player.server.name).replace("{player}", player.name)
+    }
+    fun tabBottom(player: Player): String {
+        val key = config.getString("tab.bottom") ?: return ""
+
+        return key.replace("&", "§").replace("{server}", player.server.name).replace("{player}", player.name)
+    }
 }
